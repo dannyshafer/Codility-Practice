@@ -19,3 +19,5 @@ function solution(A, K) {
     }
     return A;
 }
+
+solution([1,2,3,4,5], 3);
