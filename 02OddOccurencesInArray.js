@@ -20,3 +20,6 @@ function solution(A) {
     });
     return parseInt(Object.keys(occurrences)[0]);
 }
+
+solution([1,1,2,2,3,3,4]);
+solution([]);
