@@ -8,6 +8,7 @@
 // We need a way to add the values in the left and the values in the right and subtract those sums from each other. 
 
 function solution(A) {
+    if((A === undefined) || (A === [])) { return; };
     var smallest = 100;
     for (var i = 0; i < A.length - 1; i++){
         var left = A.slice(0, (i + 1));
