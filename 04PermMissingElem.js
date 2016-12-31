@@ -11,6 +11,7 @@ function solution(A){
 	if((A === undefined) || (A === [])) { return; };
 	var occurrence = {};
 	var highest = 0;
+	var missing = null;
 	A.forEach(function(i){
 		if(i > highest) {
 			highest = i;
@@ -19,10 +20,10 @@ function solution(A){
 	});
 	A.forEach(function(i){
 		if((occurrence[i + 1] === undefined) && (occurrence[i] !== highest)) {
-			console.log(i + 1);
-			return (i + 1);
+			missing = parseInt(i + 1);
 		} 
 	});
+	return missing;
 }
 
 
