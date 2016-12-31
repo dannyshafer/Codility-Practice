@@ -9,7 +9,8 @@
 
 function solution(A) {
     if((A === undefined) || (A === [])) { return; };
-    var smallest = 100;
+    var initial = A.slice(1, (A.length - 1));
+    var smallest = Math.abs(A[0] - initial.reduce(add, 0));
     for (var i = 0; i < A.length - 1; i++){
         var left = A.slice(0, (i + 1));
         var leftSum = left.reduce(add, 0)
