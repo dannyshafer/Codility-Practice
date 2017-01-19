@@ -1,19 +1,30 @@
-// you can write to stdout for debugging purposes, e.g.
-// console.log('this is a debug message');
-
 function solution(N, A) {
-    var highest = 0;
-    var results = new Array(N);
-    results.fill(0);
-    for(var i = 0; i < A.length; i++) {
-        console.log(results[A[i]]);
-        // results[A[i]];
-        if(results[A[i]] > highest) { highest = results[A[i]]; }
+    // write your code in JavaScript (Node.js 4.0.0)
+    
+    var result = new Array(N);
+    var max = 0;
+    var min = 0;
+    
+    for(var i=0; i<N; i++) {
+        result[i] = 0;
     }
-    // console.log(results);
-    return results;
+    
+    for(var i=0; i<A.length; i++) {
+        var op = A[i];
+        if(op > N) {
+            min = max;
+        } else {
+            result[A[i]-1] = Math.max(result[A[i]-1], min);
+            max = Math.max(++result[A[i]-1], max);
+        }
+    }
+    
+    for(var i=0; i<result.length; i++) {
+        result[i] = Math.max(result[i], min);
+    }
+    
+    return result;
 }
-
 // PSEUDOCODE:
 // two inputs. 1) an array A and an integer N. the array will become the incrementation instructions that we use and the integer will be the length of a new array that we execute some instructions on.
 // output is the array we create during the process of all the inputs given from A
