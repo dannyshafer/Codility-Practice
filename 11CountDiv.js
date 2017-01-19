@@ -1,17 +1,14 @@
 function solution(A, B, K) {
-    var range = [];
     var result = 0;
     for(var i = A; i <= B; i++) {
-        range.push(i);
-    }
-    
-    for(var i = 0; i < range.length; i++) {
-        if(range[i] % K === 0) {
+        if(i % K === 0) {
             result++;        
         }
     }
     return result;
 }
+
+solution(6, 11, 2);
 
 // PSEUDCODE:
 // inputs are three numbers: A, B, and K. A and B make a range of numbers. K is the number that each number in the range will be divided by 
@@ -22,3 +19,4 @@ function solution(A, B, K) {
     // in this case, the math is i % K === 0 
     // if the remainder is 0, then increment the result number up by one
 // outside the loop, return the result variable
+// some edge cases to consider: inputs missing, inputs not being numbers
