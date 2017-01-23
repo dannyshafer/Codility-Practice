@@ -1,4 +1,22 @@
-g
+var factors = {"A": 1, "C": 2, "T": 3, "G": 4};
+
+function solution(S, P, Q) {
+    var results = [];
+    for(var i = 0; i < P.length; i++){
+        results.push(findLowestFactor(S, P[i], Q[i]));
+    }
+    return results;
+}
+
+function findLowestFactor(sequence, start, end) {
+    var currentLowest = 4;
+    for(var i = start; i < end; i++){
+        if(factors[sequence[i]] < currentLowest) {
+            currentLowest = factors[sequence[i]];
+        }
+    }
+    return currentLowest;
+}
 
 // PSEUDOCODE:
 // there will be a container variable that holds the impact factor for each letter outside both functions
